@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -9,6 +9,7 @@ import { earthBrown } from "theme/colors";
 const Wrapper = styled(Box)({ background: earthBrown });
 
 const Footer = () => {
+  const [signupSuccess, setSignupSuccess] = useState<boolean>(false);
   return (
     <footer>
       <Wrapper
@@ -20,7 +21,33 @@ const Footer = () => {
             <Typography variant="h2">Sign up for our newsletter</Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <SignupForm />
+            {!signupSuccess && (
+              <SignupForm handleSignupSuccess={() => setSignupSuccess(true)} />
+            )}
+            {signupSuccess && (
+              <Typography variant="h4" mt={4}>
+                Thanks for submitting the form.
+              </Typography>
+            )}
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Typography variant="caption" component="p">
+              By submitting your email address, you agree to receive marketing
+              emails from Propel, and accept our{" "}
+              <a
+                href="https://propel.me/content/terms-of-service"
+                target="_blank"
+              >
+                terms & conditions
+              </a>
+              {" and "}
+              <a
+                href="https://propel.me/content/privacy-policy"
+                target="_blank"
+              >
+                privacy policy.
+              </a>
+            </Typography>
           </Grid>
         </Grid>
       </Wrapper>
