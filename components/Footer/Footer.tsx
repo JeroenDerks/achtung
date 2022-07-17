@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import SignupForm from "components/SignupForm/SignupForm";
 import { earthBrown } from "theme/colors";
 import InlineLink from "components/InlineLink";
-import { s11, s10, s9 } from "theme/spacing";
+import { s11, s10, s9, s8 } from "theme/spacing";
 import SaiettaLogo from "components/SaiettaLogo";
 
 const Wrapper = styled(Box)({ background: earthBrown });
@@ -47,6 +47,19 @@ const Footer = () => {
             <Box maxWidth={200} mt={s11}>
               <SaiettaLogo />
             </Box>
+          </Grid>
+          <Grid item xs={12} xl={12}>
+            <Typography variant="caption" component="p" mt={s8}>
+              Propel is part of Saietta Group PLC, London Stock Exchange ISIN
+              GB00BNDM6X87
+            </Typography>
+            <Typography variant="caption" component="p">
+              Saietta Europe B.V., Moleneind 23-A, 1241 NG Kortenhoef, The
+              Netherlands, VAT ID: NL860265006B01, CoC: 75392631.
+            </Typography>
+            <Typography variant="caption" component="p">
+              Copyright © Propel 2022
+            </Typography>
           </Grid>
         </Grid>
       </Wrapper>

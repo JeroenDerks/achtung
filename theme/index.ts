@@ -77,6 +77,7 @@ theme = {
     caption: {
       fontFamily,
       fontSize: 14,
+      lineHeight: 1.285,
     },
   },
 };
