@@ -7,6 +7,7 @@ import SignupForm from "components/SignupForm/SignupForm";
 import { earthBrown } from "theme/colors";
 import InlineLink from "components/InlineLink";
 import { s11, s10, s9 } from "theme/spacing";
+import SaiettaLogo from "components/SaiettaLogo";
 
 const Wrapper = styled(Box)({ background: earthBrown });
 
@@ -42,10 +43,10 @@ const Footer = () => {
               </InlineLink>
             </Typography>
           </Grid>
-          <Grid item xs={12}>
-            <Typography variant="h2" mt={s11}>
-              LOGO
-            </Typography>
+          <Grid item xs={3} sm={3} md={2}>
+            <Box maxWidth={200} mt={s11}>
+              <SaiettaLogo />
+            </Box>
           </Grid>
         </Grid>
       </Wrapper>
