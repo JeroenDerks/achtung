@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { charcoal } from "theme/colors";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -14,14 +14,17 @@ const validationSchema = Yup.object().shape({
 });
 
 const SignupForm = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
   const handleSubmit = async (v: { email: string }) => {
+    setLoading(true);
     const res = await fetch("api/signup", {
       method: "POST",
       body: JSON.stringify({ email: v.email }),
     });
-    console.log(res);
+
     const data = await res.json();
-    console.log(data);
+    setLoading(false);
   };
 
   return (
@@ -37,6 +40,8 @@ const SignupForm = () => {
             display="flex"
             borderBottom={`1px solid ${charcoal}`}
             alignItems="flex-end"
+            mt={{ xs: 5, sm: 5, md: 6.5, lg: 9.5 }}
+            mb={2}
           >
             <Input
               placeholder="Email"
@@ -45,7 +50,9 @@ const SignupForm = () => {
               onChange={handleChange}
             />
             <Box my={2}>
-              <Button type="submit">Join</Button>
+              <Button type="submit" loading={loading}>
+                Join
+              </Button>
             </Box>
           </Box>
 
