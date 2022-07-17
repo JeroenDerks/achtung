@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { charcoal } from "theme/colors";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 import Box from "@mui/material/Box";
 import Button from "components/Button";
 import Input from "components/Input";
 import Typography from "@mui/material/Typography";
+import * as Yup from "yup";
 import { GERENIC_ERROR } from "utils/constants";
+import { charcoal } from "theme/colors";
 import { s4, s9 } from "theme/spacing";
 
 const validationSchema = Yup.object().shape({

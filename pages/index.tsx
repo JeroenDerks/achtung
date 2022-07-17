@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Footer from "components/Footer";
-import Section from "components/Section";
+import BlogArticle from "components/BlogArticle";
 
 const Home: NextPage = () => {
   return (
     <>
       <main>
-        <Section>Test for base layout</Section>
+        <BlogArticle />
       </main>
       <footer>
         <Footer />

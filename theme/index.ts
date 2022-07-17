@@ -14,7 +14,7 @@ const fontFamily = [
 ].join(",");
 
 let theme = createTheme({
-  breakpoints: { values: { xs: 375, sm: 768, md: 1024, lg: 1440, xl: 1920 } },
+  breakpoints: { values: { xs: 0, sm: 768, md: 1024, lg: 1440, xl: 1920 } },
 });
 
 theme = {
@@ -46,7 +46,7 @@ theme = {
       [theme.breakpoints.up("sm")]: { fontSize: 32 }, // tablet
       [theme.breakpoints.up("md")]: { fontSize: 40 }, // desktop
       fontWeight: 300,
-      lineHeight: "1em",
+      lineHeight: "1.2",
     },
     body1: {
       color: "#242424",
@@ -55,7 +55,6 @@ theme = {
       [theme.breakpoints.up("sm")]: { fontSize: 22 }, // tablet
       [theme.breakpoints.up("md")]: { fontSize: 24 }, // desktop
       fontWeight: 300,
-      lineHeight: "1em",
     },
     body2: {
       color: "#242424",

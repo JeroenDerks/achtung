@@ -12,7 +12,11 @@ const Section = ({
 }) => {
   return (
     <Box display="flex" justifyContent="center" sx={{ background }}>
-      <Box width={MAX_WIDTH} px={s9} py={s10}>
+      <Box
+        width={MAX_WIDTH}
+        px={{ xs: "20px", sm: "20px", md: "40px", lg: "80px" }}
+        py={s10}
+      >
         {children}
       </Box>
     </Box>
