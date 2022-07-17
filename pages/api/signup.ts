@@ -1,17 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { GERENIC_ERROR } from "utils/constants";
 const client = require("mailchimp-marketing");
-type Data = { email: string };
 
 client.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: process.env.MAILCHIMP_SERVER_ID,
 });
-const genericError = "Oops, an error has occurred";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<{ email: string }>
 ) {
   if (req.method === "POST") {
     try {
@@ -29,13 +28,12 @@ export default async function handler(
         }
       );
 
-      // console.log("response: ", response);
       res.status(200).json(response);
     } catch (err) {
       if (err instanceof Error) {
         res.status(500).end(JSON.stringify({ error: err.message }));
       } else {
-        res.status(500).end(JSON.stringify({ error: genericError }));
+        res.status(500).end(JSON.stringify({ error: GERENIC_ERROR }));
       }
     }
   } else {

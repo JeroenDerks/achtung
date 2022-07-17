@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Button from "components/Button";
 import Input from "components/Input";
 import Typography from "@mui/material/Typography";
+import { GERENIC_ERROR } from "utils/constants";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -13,21 +14,47 @@ const validationSchema = Yup.object().shape({
     .required("Required field"),
 });
 
-const SignupForm = () => {
+const SignupForm = ({
+  handleSignupSuccess,
+}: {
+  handleSignupSuccess: () => void;
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>("");
 
   const handleSubmit = async (v: { email: string }) => {
     setLoading(true);
+    setError(null);
 
-    const res = await fetch("api/signup", {
-      method: "POST",
-      body: JSON.stringify({ email: v.email }),
-    });
+    try {
+      const res = await fetch("api/signup", {
+        method: "POST",
+        body: JSON.stringify({ email: v.email }),
+      });
 
-    console.log(res);
-    const data = await res.json();
-    console.log(data);
-    setLoading(false);
+      if (res.status !== 200) {
+        throw new Error("API did not respond with 200");
+      }
+      const data = await res.json();
+
+      if (data?.errors[0]?.error_code === "ERROR_CONTACT_EXISTS") {
+        throw new Error("Contact already exist");
+      }
+
+      if (data?.errors[0]?.error) {
+        throw new Error(data?.errors[0]?.error);
+      }
+
+      handleSignupSuccess();
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError(GERENIC_ERROR);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,16 +79,22 @@ const SignupForm = () => {
               name="email"
               onChange={handleChange}
             />
-            <Box my={2}>
-              <Button type="submit" loading={loading}>
-                Join
-              </Button>
-            </Box>
+
+            <Button type="submit" loading={loading}>
+              Join
+            </Button>
           </Box>
 
+          {/* Errors coming from Formik */}
           {touched?.email && Boolean(errors?.email) && (
             <Typography color="error" variant="caption">
               {errors.email}
+            </Typography>
+          )}
+          {/* Error coming from the API */}
+          {error && (
+            <Typography color="error" variant="caption">
+              {error}
             </Typography>
           )}
         </Form>
