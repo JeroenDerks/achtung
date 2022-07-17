@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import SignupForm from "components/SignupForm/SignupForm";
 import { earthBrown } from "theme/colors";
+import InlineLink from "components/InlineLink";
 
 const Wrapper = styled(Box)({ background: earthBrown });
 
@@ -31,22 +32,16 @@ const Footer = () => {
             )}
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Typography variant="caption" component="p">
+            <Typography variant="caption" component="p" mt={1}>
               By submitting your email address, you agree to receive marketing
               emails from Propel, and accept our{" "}
-              <a
-                href="https://propel.me/content/terms-of-service"
-                target="_blank"
-              >
+              <InlineLink href="https://propel.me/content/terms-of-service">
                 terms & conditions
-              </a>
+              </InlineLink>
               {" and "}
-              <a
-                href="https://propel.me/content/privacy-policy"
-                target="_blank"
-              >
+              <InlineLink href="https://propel.me/content/privacy-policy">
                 privacy policy.
-              </a>
+              </InlineLink>
             </Typography>
           </Grid>
         </Grid>
