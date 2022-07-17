@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "TWKLausanne";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./TWKLausanne-300.woff");
+}
+
+@font-face {
+  font-family: "TWKLausanne";
+  font-weight: bold;
+  font-style: normal;
+  src: url("./TWKLausanne-600.woff");
+}
