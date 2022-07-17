@@ -18,12 +18,15 @@ const SignupForm = () => {
 
   const handleSubmit = async (v: { email: string }) => {
     setLoading(true);
+
     const res = await fetch("api/signup", {
       method: "POST",
       body: JSON.stringify({ email: v.email }),
     });
 
+    console.log(res);
     const data = await res.json();
+    console.log(data);
     setLoading(false);
   };
 

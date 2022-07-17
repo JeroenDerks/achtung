@@ -16,8 +16,8 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       if (!client) throw new Error("Mailchimp client not initiated correctly");
-
       const { email } = JSON.parse(req.body);
+
       if (!email) throw new Error("Email not available");
 
       const response = await client.lists.batchListMembers(
@@ -29,15 +29,16 @@ export default async function handler(
         }
       );
 
+      // console.log("response: ", response);
       res.status(200).json(response);
     } catch (err) {
       if (err instanceof Error) {
-        res.status(405).end({ error: err.message });
+        res.status(500).end(JSON.stringify({ error: err.message }));
       } else {
-        res.status(405).end({ error: genericError });
+        res.status(500).end(JSON.stringify({ error: genericError }));
       }
     }
   } else {
-    res.status(405).end({ error: "Method not allowed" });
+    res.status(405).end(JSON.stringify({ error: "Method not allowed" }));
   }
 }
