@@ -1,5 +1,5 @@
 import React from "react";
-import BlogHeroImage from "./partials/BlogHeroImage";
+import BlogHeroImage from "components/BlogHeroImage";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Section from "components/Section";

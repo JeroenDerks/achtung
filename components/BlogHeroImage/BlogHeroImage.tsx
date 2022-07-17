@@ -40,6 +40,7 @@ const BlogHeroImage = ({ alt, src }: { alt: string; src: StaticImageData }) => {
         height="100%"
         width="100%"
         objectFit="cover"
+        placeholder="blur"
         objectPosition="20% 50%"
         layout="fill"
       />
