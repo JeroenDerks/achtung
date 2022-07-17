@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import { MAX_WIDTH } from "theme/spacing";
 import { s10, s9 } from "theme/spacing";
 
-const BaseLayout = ({
+const Section = ({
   background,
   children,
 }: {
@@ -19,4 +19,4 @@ const BaseLayout = ({
   );
 };
 
-export default BaseLayout;
+export default Section;

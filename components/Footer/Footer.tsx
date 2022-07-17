@@ -8,14 +8,13 @@ import { earthBrown } from "theme/colors";
 import InlineLink from "components/InlineLink";
 import { s11, s8 } from "theme/spacing";
 import SaiettaLogo from "components/SaiettaLogo";
-import BaseLayout from "components/BaseLayout/BaseLayout";
+import Section from "components/Section";
 
 const Footer = () => {
   const [signupSuccess, setSignupSuccess] = useState<boolean>(false);
 
   return (
-    <footer>
-      <BaseLayout background={earthBrown}>
+      <Section background={earthBrown}>
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={6}>
             <Typography variant="h2">Sign up for our newsletter</Typography>
@@ -63,7 +62,6 @@ const Footer = () => {
           </Grid>
         </Grid>
       </BaseLayout>
-    </footer>
   );
 };
 
