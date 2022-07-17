@@ -6,16 +6,16 @@ import Typography from "@mui/material/Typography";
 import SignupForm from "components/SignupForm/SignupForm";
 import { earthBrown } from "theme/colors";
 import InlineLink from "components/InlineLink";
-import { s11, s10, s9, s8 } from "theme/spacing";
+import { s11, s8 } from "theme/spacing";
 import SaiettaLogo from "components/SaiettaLogo";
-
-const Wrapper = styled(Box)({ background: earthBrown });
+import BaseLayout from "components/BaseLayout/BaseLayout";
 
 const Footer = () => {
   const [signupSuccess, setSignupSuccess] = useState<boolean>(false);
+
   return (
     <footer>
-      <Wrapper px={s9} py={s10}>
+      <BaseLayout background={earthBrown}>
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={6}>
             <Typography variant="h2">Sign up for our newsletter</Typography>
@@ -62,7 +62,7 @@ const Footer = () => {
             </Typography>
           </Grid>
         </Grid>
-      </Wrapper>
+      </BaseLayout>
     </footer>
   );
 };

@@ -32,8 +32,6 @@ yarn-error.log*
 .env.production
 .env.production.local
 
-
-
 # build-time SEO assets
 /public/robots.txt
 /public/sitemap.xml

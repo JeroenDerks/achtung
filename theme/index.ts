@@ -14,15 +14,7 @@ const fontFamily = [
 ].join(",");
 
 let theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 375,
-      sm: 768,
-      md: 1024,
-      lg: 1440,
-      xl: 1920,
-    },
-  },
+  breakpoints: { values: { xs: 375, sm: 768, md: 1024, lg: 1440, xl: 1920 } },
 });
 
 theme = {

@@ -9,3 +9,5 @@ export const s4 = { xs: "16px", md: "16px", lg: "16px" };
 export const s3 = { xs: "8px", md: "8px", lg: "8px" };
 export const s2 = { xs: "4px", md: "4px", lg: "4px" };
 export const s1 = { xs: "2px", md: "2px", lg: "2px" };
+
+export const MAX_WIDTH = 1920;
