@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import SignupForm from "components/SignupForm/SignupForm";
 import { earthBrown } from "theme/colors";
 import InlineLink from "components/InlineLink";
+import { s11, s10, s9 } from "theme/spacing";
 
 const Wrapper = styled(Box)({ background: earthBrown });
 
@@ -13,10 +14,7 @@ const Footer = () => {
   const [signupSuccess, setSignupSuccess] = useState<boolean>(false);
   return (
     <footer>
-      <Wrapper
-        px={{ lg: 10, md: 5, sm: 2.5, xs: 2.5 }}
-        py={{ lg: 13, md: 9, sm: 7.5, xs: 7.5 }}
-      >
+      <Wrapper px={s9} py={s10}>
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={6}>
             <Typography variant="h2">Sign up for our newsletter</Typography>
@@ -42,6 +40,11 @@ const Footer = () => {
               <InlineLink href="https://propel.me/content/privacy-policy">
                 privacy policy.
               </InlineLink>
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h2" mt={s11}>
+              LOGO
             </Typography>
           </Grid>
         </Grid>

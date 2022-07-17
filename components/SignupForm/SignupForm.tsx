@@ -7,6 +7,7 @@ import Button from "components/Button";
 import Input from "components/Input";
 import Typography from "@mui/material/Typography";
 import { GERENIC_ERROR } from "utils/constants";
+import { s4, s9 } from "theme/spacing";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -70,8 +71,8 @@ const SignupForm = ({
             display="flex"
             borderBottom={`1px solid ${charcoal}`}
             alignItems="flex-end"
-            mt={{ xs: 5, sm: 5, md: 6.5, lg: 9.5 }}
-            mb={2}
+            mt={s9}
+            mb={s4}
           >
             <Input
               placeholder="Email"
